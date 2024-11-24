@@ -1,6 +1,7 @@
-import { Hono } from "https://deno.land/x/hono/mod.ts";
+// deno-lint-ignore-file
+import { Hono } from "https://deno.land/x/hono@v4.3.11/mod.ts";
 import client from "./db/db.js";
-import * as bcrypt from "https://deno.land/x/bcrypt/mod.ts"; // For password hashing
+import * as bcrypt from "https://deno.land/x/bcrypt@v0.4.1/mod.ts"; // For password hashing
 
 const app = new Hono();
 
