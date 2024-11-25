@@ -17,8 +17,7 @@ const birthdate = body.birthdate;
 const role = body.role;
 try {
 // Hash the user's password
-const salt = await bcrypt.genSalt(10);
-const hashedPassword = await bcrypt.hash(password, salt);
+const hashedPassword = await bcrypt.hash(password);
 // Insert the new user into the database
 const result = await client.queryArray(
 `INSERT INTO zephyr_users (username, password_hash, role, birthdate)
