@@ -5,37 +5,47 @@ import * as bcrypt from "https://deno.land/x/bcrypt@v0.4.1/mod.ts"; // For passw
 
 const app = new Hono();
 
-// Serve the registration form
-app.get('/register', async (c) => {return c.html(await Deno.readTextFile('./views/register.html'));});
-
-// Handle user registration (form submission)
-app.post('/register', async (c) => {
-const body = await c.req.parseBody();
-const username = body.username;
-const password = body.password;
-const birthdate = body.birthdate;
-const role = body.role;
-try {
-// Hash the user's password
-const hashedPassword = await bcrypt.hash(password);
-// Insert the new user into the database
-const result = await client.queryArray(
-`INSERT INTO zephyr_users (username, password_hash, role, birthdate)
-VALUES ($1, $2, $3, $4)`,
-{username,
-hashedPassword,
-role,
-birthdate}
-);
-// Success response
-return c.text('User registered successfully!');
-} catch (error) {
-console.error(error);
-return c.text('Error during registration', 500);
-}
+app.get('/register', async (c) => {
+  return c.html(await Deno.readTextFile('./views/register.html'));
 });
 
-/*app.listen({ port: 3000 });*/
+app.post('/register', async (c) => {
+  const body = await c.req.parseBody();
+  const username = body.username;
+  const password = body.password;
+  const birthdate = body.birthdate;
+  const role = body.role;
+
+  console.log('Username:', username);
+  console.log('Password:', password);
+  console.log('Birthdate:', birthdate);
+  console.log('Role:', role);
+
+  try {
+    if (!username || !password || !birthdate || !role) {
+      return c.text('All fields are required', 400);
+    }
+
+    const hashedPassword = await bcrypt.hash(password);
+
+    // Corrected query
+    const result = await client.queryArray(
+      `INSERT INTO zephyr_users (username, password_hash, role, birthdate)
+       VALUES ($1, $2, $3, $4)`,
+      [username, hashedPassword, role, birthdate]
+    );
+
+    return c.text('User registered successfully!');
+  } catch (error) {
+    console.error('Registration error:', error);
+
+    if (error.message.includes('duplicate key value')) {
+      return c.text('Username is already taken', 400);
+    }
+
+    return c.text('Error during registration', 500);
+  }
+});
+
 console.log('Server running on http://localhost:3000');
 Deno.serve(app.fetch);
-//deno run --allow-net --allow-env --allow-read --watch app.js
