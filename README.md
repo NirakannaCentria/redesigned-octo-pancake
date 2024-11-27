@@ -17,4 +17,10 @@ Cybersecurity and data privacy Logbook
 | 18.11.2024 | 2h  | Portswigger Lab | Username enumeration via different responses |
 | 19.11.2024 | 0,5h | Portswigger Lab | Unprotected admin functionality  |
 | 19.11.2024 | 1h | Portswigger task  | Writing short reports for task submission |
-
+| 23.11.2024 | 2h | Booking system phase 1  | Docker creating database |
+| 24.11.2024 | 2h | Booking system phase 1  | Docker creating and testing database |
+| 24.11.2024 | 4h | Booking system phase 1  | Making the registration page |
+| 24.11.2024 | 2h | Booking system phase 1  | Testing the registration page and doing improvements |
+| 25.11.2024 | 2h | Booking system phase 1  | ZAP vulnerability testing first try|
+| 26.11.2024 | 1,5h | Booking system phase 1  | ZAP vulnerability testing second try |
+| 27.11.2024 | 1h | Booking system phase 1  | Updating the git repo |
