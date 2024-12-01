@@ -32,7 +32,7 @@ export async function loginUser(c) {
             return c.text("Invalid email or password", 400);
         }
 
-        const [_userId, storedUsername, storedPasswordHash] = user;
+        const [_userId, _storedUsername, storedPasswordHash] = user;
 
         // Compare provided password with the stored hashed password
         const passwordMatches = await bcrypt.compare(password, storedPasswordHash);
@@ -41,7 +41,10 @@ export async function loginUser(c) {
         }
 
         // Authentication successful, proceed to create session or token
-        return c.text(`Welcome back, ${storedUsername}!`);
+        //return c.text(`Welcome back, ${storedUsername}!`);
+
+        // Authen􀆟ca􀆟on successful, redirect to the index page
+        return c.redirect('/');
     } catch (error) {
         if (error instanceof z.ZodError) {
             // Handle validation errors from Zod
