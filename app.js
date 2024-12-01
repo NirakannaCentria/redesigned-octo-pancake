@@ -1,8 +1,10 @@
 // deno-lint-ignore-file
 import { Hono } from "https://deno.land/x/hono@v4.3.11/mod.ts";
 import { registerUser } from "./routes/register.js"
+import { loginUser } from "./routes/login.js"; // Import login logic
 import { serveStatic } from "https://deno.land/x/hono@v4.3.11/middleware.ts";
 import client from "./db/db.js";
+import * as bcrypt from "https://deno.land/x/bcrypt@v0.4.1/mod.ts";
 
 // Create the Hono app
 
@@ -54,6 +56,12 @@ app.post('/register', async (c) => {
     return c.text('Error during registration', 500);
   }
 });
+// Serve login page
+app.get('/login', async (c) => {
+  return c.html(await Deno.readTextFile('./views/login.html')); // Use the login.html file
+});
+// Handle user login
+app.post('/login', loginUser);
 
 console.log('Server running on http://localhost:3000');
 Deno.serve(app.fetch);
