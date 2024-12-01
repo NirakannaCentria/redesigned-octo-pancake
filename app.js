@@ -1,9 +1,17 @@
 // deno-lint-ignore-file
 import { Hono } from "https://deno.land/x/hono@v4.3.11/mod.ts";
+import { registerUser } from "./routes/register.js"
+import { serveStatic } from "https://deno.land/x/hono@v4.3.11/middleware.ts";
 import client from "./db/db.js";
-import * as bcrypt from "https://deno.land/x/bcrypt@v0.4.1/mod.ts"; // For password hashing
+
+// Create the Hono app
+
 
 const app = new Hono();
+// Serve static files from the /static directory
+app.use('/static/*', serveStatic({ root: '.' }));
+
+
 
 app.get('/register', async (c) => {
   return c.html(await Deno.readTextFile('./views/register.html'));
