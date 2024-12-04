@@ -28,6 +28,6 @@ Cybersecurity and data privacy Logbook
 | 01.12.2024 | 0,5h | Booking system phase 2  | Vulnerability test of login-page + struggling with ZAP as there seemed to be some issues with ZAP [report 1](index_login_registration_011224t_test1.md) |
 | 01.12.2024 | 1h | Booking system phase 2  | Errors detected by ZAP: Path Traversal at "register" endpoint + SQL Injection on "register" endpoint + CSP Header not set + Missing anti-clickjacking Header + X-Content-Type-OptionsMissing |
 | 01.12.2024 | 0,5h | Booking system phase 2  | Vulnerability test for all pages  [report 2](index_login_registration_011224_test2.md) |
-| 01.12.2024 | 1h | Booking system phase 2  | Fixed errors - Path Traversal: added input validation + SQL Injection: implementing parameterized queries  + CSP Header: Added CSP headers + Missing anti-clickjacking Header: Added `X-Frame-Options` header + X-Content-Type-OptionsMissing: Added `nosniff` header  |
+| 01.12.2024 | 1h | Booking system phase 2  | Fixed errors - Path Traversal: added input validation + SQL Injection: implementing parameterized queries  + CSP Header: Added CSP headers + Missing anti-clickjacking Header: Added X-Frame-Options header + X-Content-Type-OptionsMissing: Added nosniff header  |
 | 01.12.2024 | 0,5h | Booking system phase 2  | Generating reports in ZAP and updating my Git repo |
 | 01.12.2024 | 2 h | Booking system phase 2  | Updating Git repo according to teacher request |
