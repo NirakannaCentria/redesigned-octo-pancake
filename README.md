@@ -26,12 +26,7 @@ Cybersecurity and data privacy Logbook
 | 01.12.2024 | 0,5h | Booking system phase 2  | Implementing the login-page and the index.html |
 | 01.12.2024 | 1h | Booking system phase 2  | Functionality test of all three pages and tweaking the code to get them all functional |
 | 01.12.2024 | 0,5h | Booking system phase 2  | Vulnerability test of login-page + struggling with ZAP as there seemed to be some issues with ZAP [report 1](index_login_registration_011224t_test1.md) |
- - **Path Traversal** on `register` endpoint.
-   - **SQL Injection** on `register` endpoint.
-   - **CSP Header Not Set** on multiple pages.
-   - **Missing Anti-clickjacking Header**
-   - **X-Content-Type-Options Missing**
-
+| 01.12.2024 | 1h | Booking system phase 2  | Errors detected by ZAP: Path Traversal at "register" endpoint + SQL Injection on "register" endpoint + CSP Header not set + Missing anti-clickjacking Header + X-Content-Type-OptionsMissing |
 | 01.12.2024 | 1h | Booking system phase 2  | Vulnerability test for all pages and rework of pages to increase security [report 2](index_login_registration_011224_test2.md) |
    - **Path Traversal**: Fixed by adding strict input validation.
    - **SQL Injection**: Prevented by implementing parameterized queries.
