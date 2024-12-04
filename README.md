@@ -25,6 +25,7 @@ Cybersecurity and data privacy Logbook
 | 26.11.2024 | 1,5h | Booking system phase 1  | ZAP vulnerability testing second try |
 | 01.12.2024 | 0,5h | Booking system phase 2  | Implementing the login-page and the index.html |
 | 01.12.2024 | 1h | Booking system phase 2  | Functionality test of all three pages and tweaking the code to get them all functional |
-| 01.12.2024 | 0,5h | Booking system phase 2  | Vulnerability test of login-page + struggling with ZAP as there seemed to be some issues with ZAP |
-| 01.12.2024 | 1h | Booking system phase 2  | Vulnerability test for all pages and rework of pages to increase security|
+| 01.12.2024 | 0,5h | Booking system phase 2  | Vulnerability test of login-page + struggling with ZAP as there seemed to be some issues with ZAP [report 1](index_login_registration_011224t_test1.md) |
+| 01.12.2024 | 1h | Booking system phase 2  | Vulnerability test for all pages and rework of pages to increase security [report 2] (index_login_registration_011224_test2.md)|
+| 01.12.2024 | 0,5h | Booking system phase 2  | Generating reports in ZAP and updating my Git repo |
 | 01.12.2024 | 0,5h | Booking system phase 2  | Generating reports in ZAP and updating my Git repo |
